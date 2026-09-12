@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="developerGradient" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#6977ea" />
+      <stop offset="30%" stop-color="#8e68db" />
+      <stop offset="50%" stop-color="#bd5fa9" />
+      <stop offset="75%" stop-color="#38a7f2" />
+      <stop offset="100%" stop-color="#00c4f4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Head Silhouette -->
+  <path d="M256 12 C186 12 168 62 168 122 C168 180 196 226 256 226 C316 226 344 180 344 122 C344 62 326 12 256 12 Z" 
+        fill="url(#developerGradient)" />
+
+  <!-- Torso & Shoulders Silhouette -->
+  <path d="M86 460 C78 335 125 252 202 225 C218 219 237 236 256 236 C275 236 294 219 310 225 C387 252 434 335 426 460 L416 488 L96 488 Z" 
+        fill="url(#developerGradient)" />
+
+  <!-- Hair Line Accent -->
+  <path d="M168 108 L218 48 L236 92 L302 78 L344 120" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Shirt Collar & Lapels -->
+  <path d="M188 225 L228 274 L256 248 L284 274 L324 225" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Tie Knot & Upper Tie -->
+  <polygon points="242,260 270,260 276,288 256,298 236,288" 
+           fill="none" 
+           stroke="#ffffff" 
+           stroke-width="10" 
+           stroke-linejoin="round" />
+
+  <!-- Laptop Display Body -->
+  <rect x="94" y="300" width="324" height="190" rx="24" ry="24" 
+        fill="url(#developerGradient)" />
+
+  <!-- Laptop Screen White Border -->
+  <rect x="94" y="300" width="324" height="190" rx="24" ry="24" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="14" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Code Symbols inside the Laptop Screen -->
+  <!-- Opening bracket < -->
+  <path d="M224 366 L158 412 L224 458" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="18" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Center Slash / -->
+  <path d="M276 350 L234 474" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="18" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Closing bracket > -->
+  <path d="M288 366 L354 412 L288 458" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="18" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Laptop Base Platform Bar -->
+  <rect x="52" y="490" width="408" height="14" rx="7" ry="7" 
+        fill="#00c4f4" />
+</svg>
