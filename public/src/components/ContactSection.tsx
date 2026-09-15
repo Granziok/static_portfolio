@@ -134,7 +134,7 @@ export const ContactSection: React.FC = () => {
             Conversemos
           </h2>
           <p className="text-base text-slate-400 leading-relaxed">
-            ¿Tenes una propuesta laboral, un proyecto backend o deseas coordinar una entrevista técnica? Completa el formulario o contáctame por cualquiera de los canales directos.
+            ¿Tenes una propuesta laboral, un proyecto backend o deseas coordinar una entrevista técnica? Completa el formulario o contactame por cualquiera de los canales directos.
           </p>
         </div>
 

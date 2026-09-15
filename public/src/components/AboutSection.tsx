@@ -66,25 +66,26 @@ export const AboutSection: React.FC = () => {
             <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 space-y-4">
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <Target className="w-5 h-5 text-teal-400" />
-                <span>¿Quién soy y cuál es mi objetivo?</span>
+                <span>Quién soy y mi objetivo</span>
               </h3>
               
               <p className="text-slate-300">
-                Soy estudiante de <strong className="text-white">Analista en Sistemas (IFES)</strong> y de la{' '}
+                Estudiante de <strong className="text-white">Analista en Sistemas (IFES)</strong> y de la{' '}
                 <strong className="text-white">Tecnicatura en Sonido (ESMN)</strong> en Neuquén Capital. 
                 Mi objetivo principal es incorporarme a un equipo de trabajo profesional donde pueda aportar mi compromiso, 
-                responsabilidad y pensamiento crítico para desarrollar experiencia en entornos de producción reales.
+                responsabilidad y conocimientos para desarrollar experiencia en entornos de producción reales.
               </p>
 
               <p className="text-slate-300">
-                Mi formación comenzó con una fuerte base técnica como <strong className="text-white">Bachiller en Prácticas de Laboratorio</strong>, 
-                lo que forjó mi metodología analítica: respeto por los datos empíricos, control de variables y búsqueda exhaustiva de la causa raíz ante cualquier anomalía. 
+                Mi formación comienza con una fuerte base técnica como <strong className="text-white">Bachiller en Prácticas de Laboratorio</strong>, 
+                forjando así mi metodología analítica: respeto por los datos empíricos, control de variables y búsqueda exhaustiva de la causa raíz ante cualquier anomalía. 
                 Ese mismo rigor es el que traslado hoy al software, ya sea diseñando una capa de persistencia en Java o evaluando la sensibilidad estadística de un modelo predictivo médico.
               </p>
 
               <p className="text-slate-300">
-                No me conformo con soluciones superficiales: busco entender cómo interactúa el hardware con el sistema operativo, 
+                Busco entender cómo interactúa el hardware con el sistema operativo, 
                 cómo fluyen los datos a través del backend y cómo estructurar código modular y mantenible que facilite el trabajo de todo el equipo.
+                Sin dejar espacio para soluciones superficiales.
               </p>
             </div>
 

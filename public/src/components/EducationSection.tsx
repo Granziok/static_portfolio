@@ -154,7 +154,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ onOpenResume
                   Curriculum Vitae Completo
                 </h4>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  Visualiza o imprime el resumen ejecutivo de Santiago Olivera.
+                  Visualiza o imprime mi resumen ejecutivo.
                 </p>
               </div>
 
@@ -164,7 +164,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ onOpenResume
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-lg transition-colors font-mono shrink-0 shadow-sm"
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>Ver Ficha CV</span>
+                <span>Ver CV detallado</span>
               </button>
             </div>
 

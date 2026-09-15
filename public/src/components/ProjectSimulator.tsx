@@ -520,21 +520,44 @@ function AudioFormulaSimulator() {
   const [frequency, setFrequency] = useState<number>(4);
   const [formulaMode, setFormulaMode] = useState<'sine' | 'smoothStep' | 'exponential'>('sine');
 
-  // Compute curve points for visualization
-  const points = Array.from({ length: 40 }).map((_, i) => {
-    const t = i / 39;
-    let y = 0.5;
-    if (formulaMode === 'sine') {
-      y = 0.5 + 0.4 * Math.sin(t * Math.PI * frequency);
-    } else if (formulaMode === 'smoothStep') {
-      y = t * t * (3 - 2 * t);
-    } else {
-      y = Math.pow(t, 2.5);
-    }
-    return { x: i * 8, y: Math.max(10, Math.min(90, (1 - y) * 100)) };
-  });
+  // Generate curve path according to the active mathematical formula and cycle frequency 'a'
+  let pathD = '';
+  if (formulaMode === 'sine') {
+    const numPoints = 160;
+    const pts = Array.from({ length: numPoints }).map((_, i) => {
+      const t = i / (numPoints - 1);
+      const y = 0.5 + 0.4 * Math.sin(t * 2 * Math.PI * frequency);
+      const x = t * 320;
+      const ySvg = 90 - y * 80;
+      return `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${ySvg.toFixed(1)}`;
+    });
+    pathD = pts.join(' ');
+  } else {
+    // Cyclic waveforms (SmoothStep & Exponential) repeated according to 'frequency' (parameter 'a')
+    const pointsPerCycle = 32;
+    const commands: string[] = [];
 
-  const pathD = points.reduce((acc, p, i) => `${acc} ${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`, '');
+    for (let c = 0; c < frequency; c++) {
+      const xCycleStart = (c / frequency) * 320;
+      const xCycleEnd = ((c + 1) / frequency) * 320;
+
+      for (let j = 0; j <= pointsPerCycle; j++) {
+        const tau = j / pointsPerCycle;
+        let y = 0;
+        if (formulaMode === 'smoothStep') {
+          // Cubic Hermite polynomial: tau^2 * (3 - 2 * tau)
+          y = tau * tau * (3 - 2 * tau);
+        } else {
+          // Exponential filter curve: tau^2.5
+          y = Math.pow(tau, 2.5);
+        }
+        const x = xCycleStart + tau * (xCycleEnd - xCycleStart);
+        const ySvg = 90 - y * 80;
+        commands.push(`${commands.length === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${ySvg.toFixed(1)}`);
+      }
+    }
+    pathD = commands.join(' ');
+  }
 
   return (
     <div className="bg-slate-950 rounded-xl p-4 sm:p-5 border border-slate-800 text-slate-200">
@@ -555,7 +578,7 @@ function AudioFormulaSimulator() {
         <div className="md:col-span-7 bg-slate-900/90 p-3 rounded-xl border border-slate-800">
           <div className="text-[11px] font-mono text-slate-400 mb-2 flex justify-between">
             <span>Osciloscopio / Curva de Modulación Paramétrica</span>
-            <span className="text-purple-300">f(t, a, b)</span>
+            <span className="text-purple-300">f(t, a={frequency})</span>
           </div>
 
           <div className="h-32 w-full bg-slate-950 rounded border border-slate-800 relative overflow-hidden flex items-center justify-center">
@@ -617,7 +640,7 @@ function AudioFormulaSimulator() {
             }`}
           >
             <div className="text-[11px] text-purple-300">Interpolación Hermite (SmoothStep)</div>
-            <div className="text-xs text-slate-300">t * t * (3 - 2 * t)</div>
+            <div className="text-xs text-slate-300">tau² · (3 - 2·tau) • tau = Fract(a * t)</div>
           </button>
 
           <button
@@ -629,7 +652,7 @@ function AudioFormulaSimulator() {
             }`}
           >
             <div className="text-[11px] text-purple-300">Respuesta Exponencial de Filtro</div>
-            <div className="text-xs text-slate-300">Power(t, 2.5)</div>
+            <div className="text-xs text-slate-300">Power(Fract(a * t), 2.5)</div>
           </button>
         </div>
       </div>
